@@ -21,7 +21,7 @@ A lightweight Linux monitoring tool that collects disk usage statistics and stor
 ### Docker
 
 1. Build MySQL image:
-```bash
+
 cd mysql
 docker build -t my-mysql:latest .
 
