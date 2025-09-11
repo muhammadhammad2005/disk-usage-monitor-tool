@@ -1,0 +1,4 @@
+efivarfs,128K,53K,71K,43,/sys/firmware/efi/efivars,2025-09-11 10:38:41,192.168.1.12,ZorinOS
+/dev/sdb1,117G,55G,57G,50,/,2025-09-11 10:38:41,192.168.1.12,ZorinOS
+/dev/nvme0n1p1,96M,37M,60M,39,/boot/efi,2025-09-11 10:38:41,192.168.1.12,ZorinOS
+/dev/nvme1n1p3,238G,155G,84G,65,/media/hammad/NVMe,2025-09-11 10:38:41,192.168.1.12,ZorinOS

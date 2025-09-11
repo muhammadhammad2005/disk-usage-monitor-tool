@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tool-config
+data:
+  mylinux.json: |
+    {
+      "os_flavour": "cat /etc/os-release | grep -iw \"NAME\" | awk -F = '{print $2}' | tr -d '\"'",
+      "df_cmd": "df -h  | grep -v 'tmpfs' | awk 'NR!=1' | awk '{print $1,$2,$3,$4,$5,$6}' | sed -e 's/%//g' | sed -E \"s/ +/,/g\" | sed \"s/$/,$(date '+%F %T')/g\" | sed \"s/$/,$(hostname -I | awk '{print $1}')/g\" |  sed \"s/$/,$(hostname)/g\" > myfilecsv.csv"
+    }

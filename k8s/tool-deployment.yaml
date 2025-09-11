@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-tool
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-tool
+  template:
+    metadata:
+      labels:
+        app: my-tool
+    spec:
+      containers:
+        - name: my-tool
+          image: hammad2005/my-tool:latest
+          env:
+            - name: MYSQL_USER
+              value: "mysql_user"
+            - name: MYSQL_PASSWORD
+              value: "test123"
+            - name: MYSQL_DATABASE
+              value: "alnafi"
+            - name: MYSQL_HOST
+              value: "my-mysql"
+      restartPolicy: Always
