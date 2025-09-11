@@ -23,12 +23,14 @@ A lightweight Linux monitoring tool that collects disk usage statistics and stor
 1. Build MySQL image:
 
 cd mysql
+
 docker build -t my-mysql:latest .
 
 
 2. Build tool image:
 
-cd ../tool
+cd tool
+
 docker build -t my-tool:latest .
 
 3. Run MySQL container:
@@ -57,21 +59,26 @@ docker run -d --name my-tool \
 1. Apply MySQL deployment and service:
 
 kubectl apply -f k8s/mysql-deployment.yaml
+
 kubectl apply -f k8s/mysql-service.yaml
 
 2. Apply tool deployment and secret/configmap:
 
 kubectl apply -f k8s/tool-secret.yaml
+
 kubectl apply -f k8s/tool-configmap.yaml
+
 kubectl apply -f k8s/tool-deployment.yaml
 
 3. Check pods and logs:
 
 kubectl get pods
+
 kubectl logs -f <tool-pod-name>
 
 ## Data Storage
 MySQL data is persisted in /home/hammad/mysql-data on host or via a Kubernetes PersistentVolume.
+
 Table: my_df_data
 
 ## Contributing
