@@ -17,11 +17,26 @@ spec:
           image: hammad2005/my-tool:latest
           env:
             - name: MYSQL_USER
-              value: "mysql_user"
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: user
             - name: MYSQL_PASSWORD
-              value: "test123"
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: password
             - name: MYSQL_DATABASE
               value: "alnafi"
             - name: MYSQL_HOST
               value: "my-mysql"
+          volumeMounts:
+            - name: config-volume
+              mountPath: /tool/config/mylinux.json
+              subPath: mylinux.json
+              readOnly: true
+      volumes:
+        - name: config-volume
+          configMap:
+            name: tool-config
       restartPolicy: Always
